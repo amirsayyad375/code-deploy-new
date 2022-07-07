@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt-get -y update
+sudo apt -y update
 
 # INSTALL NODEJS - ONLY FOR UBUNTU
 sudo apt install nodejs -y
@@ -7,3 +7,14 @@ sudo apt install nodejs -y
 # INSTALL NPM & PM2 - ONLY FOR UBUNTU
 sudo apt install npm -y
 sudo npm install pm2@latest -g
+
+### Install Code-Deploy-Agent
+
+sudo apt update
+sudo apt install ruby-full
+sudo apt install wget
+cd /home/ubuntu
+wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto > /tmp/logfile
+sudo service codedeploy-agent start
